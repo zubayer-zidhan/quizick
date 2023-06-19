@@ -1,0 +1,66 @@
+{
+    "anime": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "sports": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "fitness": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "cars": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "games": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "f1": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "movies": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ],
+    "technology": [
+        {
+            "id": 1,
+            "question": "q1",
+            "answer": "",
+            "solved": false
+        }
+    ]
+}
