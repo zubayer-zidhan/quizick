@@ -34,7 +34,7 @@ const Cards = () => {
 
 
     return (
-        <div>
+        <div className='grid grid-cols-4 gap-1'>
             {
                 topics ? topics.map((key, index) => (
                     <TopicCard key={index} name={key.toUpperCase()} />

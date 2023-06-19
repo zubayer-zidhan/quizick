@@ -7,7 +7,9 @@ const MainPage = () => {
     return (
         <div>
             <Navbar />
-            <Cards />
+            <div className='flex justify-center mt-32'>
+                <Cards />
+            </div>
         </div>
     )
 }
