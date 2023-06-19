@@ -1,12 +1,14 @@
 "use client";
 
+import MainPage from "./pages/MainPage";
+
 
 
 
 export default function Home() {
     return (
         <div>
-            Loading Page!!!
+            <MainPage />
         </div>
     );
 }
