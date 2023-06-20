@@ -108,20 +108,20 @@ const TopicCard = ({name, data, updateQuizData}) => {
                             {currentQuestion.question}
                         </Dialog.Title>
 
-                        <div className="mt-16 mb-5">
+                        <div className="mt-16 mb-3">
                             <button
                                 type="button"
                                 className="mr-5 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                                 onClick={markAsSolved}
                             >
-                                Solve
+                                Mark As Solved
                             </button>
                             <button
                                 type="button"
-                                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-md font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-md font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                                 onClick={closeModal}
                             >
-                                Close
+                                Close Window
                             </button>
                         </div>
                         </Dialog.Panel>

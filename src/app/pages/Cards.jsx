@@ -30,14 +30,8 @@ const Cards = () => {
   }, [quizData]);
 
 
-    
-    const solveQuestion = (event, question) => {
-        console.log("SOLVED");
-        console.log(question);
-    }
-
     return (
-        <div className='grid grid-cols-4 gap-1'>
+        <div className='mt-8 grid grid-cols-4 gap-1 gap-y-8'>
             {
                 topics ? topics.map((key, index) => (
                     <TopicCard key={index} name={key} data={quizData} updateQuizData={setQuizData} />
