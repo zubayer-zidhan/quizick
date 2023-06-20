@@ -15,8 +15,8 @@ const TopicCard = ({name, data, updateQuizData}) => {
         setIsOpen(false);
     }
 
-
-    function openModal() {
+    
+    function findNextQuestion() {
         const unsolvedQuestion = newQuizData[name].find(question => !question.solved);
         
         if(unsolvedQuestion) {
@@ -24,12 +24,12 @@ const TopicCard = ({name, data, updateQuizData}) => {
         } else {
             setCurrentQuestion(false);
         }
+    }
 
-        // console.log(currentQuestion);
 
+    function openModal() {
+        findNextQuestion();
         setIsOpen(true);
-        // console.log(data);
-        // console.log(name);
     }
 
 
@@ -55,7 +55,7 @@ const TopicCard = ({name, data, updateQuizData}) => {
                 return newData; // Return the updated state
             });
 
-            setCurrentQuestion(false);
+            findNextQuestion();
 
             updateQuizData(newQuizData);
             setIsOpen(false);
