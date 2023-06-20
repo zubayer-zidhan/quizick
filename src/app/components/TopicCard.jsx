@@ -2,9 +2,10 @@ import React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 
-const TopicCard = ({name, data, solveQuestion}) => {
+const TopicCard = ({name, data, updateQuizData}) => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [newQuizData, setNewQuizData] = useState(data);
     const [currentQuestion, setCurrentQuestion] = useState(true);
 
 
@@ -16,10 +17,10 @@ const TopicCard = ({name, data, solveQuestion}) => {
 
 
     function openModal() {
-        const unsolvedQuestion = data.find(question => !question.solved);
+        const unsolvedQuestion = newQuizData[name].find(question => !question.solved);
         
         if(unsolvedQuestion) {
-            setCurrentQuestion(unsolvedQuestion.question);
+            setCurrentQuestion(unsolvedQuestion);
         } else {
             setCurrentQuestion(false);
         }
@@ -33,13 +34,41 @@ const TopicCard = ({name, data, solveQuestion}) => {
 
 
     
+    function markAsSolved() {
+        if(currentQuestion) {
 
+            setNewQuizData(prevData => {
+                // Create a copy of the previous state
+                const newData = { ...prevData };
+
+                // Find the category (e.g., 'sports' or 'fitness')
+                const topicData = newData[name];
+
+                // Find the question by its ID
+                const question = topicData.find(item => item.id === currentQuestion.id);
+
+                // Update the 'solved' property for the question
+                if (question) {
+                    question.solved = true; // Set the value to true or toggle it as needed
+                }
+
+                return newData; // Return the updated state
+            });
+
+            setCurrentQuestion(false);
+
+            updateQuizData(newQuizData);
+            setIsOpen(false);
+            // console.log(newQuizData);
+            
+        }
+    }
 
 
     return (
         <>
             <div 
-                className='bg-green-800 text-white hover:text-black w-80 px-7 py-7 whitespace-nowrap ml-7 mt-7 rounded-xl shadow-xl shadow-slate-600 hover:cursor-pointer hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
+                className={`${currentQuestion ? "bg-green-800 text-white" : "bg-gray-400 text-gray-800"} hover:text-black w-80 px-7 py-7 whitespace-nowrap ml-7 mt-7 rounded-xl shadow-xl shadow-slate-600 hover:cursor-pointer hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                 onClick={openModal}
                 style={{ pointerEvents: currentQuestion ? 'auto' : 'none'}}
             >
@@ -76,14 +105,14 @@ const TopicCard = ({name, data, solveQuestion}) => {
                             as="h3"
                             className="mt-4 text-3xl font-medium leading-6 text-gray-900"
                         >
-                            {currentQuestion}
+                            {currentQuestion.question}
                         </Dialog.Title>
 
                         <div className="mt-16 mb-5">
                             <button
                                 type="button"
                                 className="mr-5 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                                onClick={event => solveQuestion(event, "hello")}
+                                onClick={markAsSolved}
                             >
                                 Solve
                             </button>
