@@ -2,7 +2,7 @@ import React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 
-const TopicCard = ({name, data, solve}) => {
+const TopicCard = ({name, data, solveQuestion}) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(true);
@@ -83,7 +83,7 @@ const TopicCard = ({name, data, solve}) => {
                             <button
                                 type="button"
                                 className="mr-5 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                                onClick={solve}
+                                onClick={event => solveQuestion(event, "hello")}
                             >
                                 Solve
                             </button>

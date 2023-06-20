@@ -31,15 +31,16 @@ const Cards = () => {
 
 
     
-    const solveQuestion = () => {
+    const solveQuestion = (event, question) => {
         console.log("SOLVED");
+        console.log(question);
     }
 
     return (
         <div className='grid grid-cols-4 gap-1'>
             {
                 topics ? topics.map((key, index) => (
-                    <TopicCard key={index} name={key} data={quizData[key]} solve={solveQuestion} />
+                    <TopicCard key={index} name={key} data={quizData[key]} solveQuestion={solveQuestion} />
                 )) : <></>
             }
         </div>
